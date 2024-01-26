@@ -1,4 +1,5 @@
 #include "Pinout.h"
+#include "Display/MatrixDisplay.h"
 
 namespace MatrixDisplay
 {
@@ -6,7 +7,7 @@ namespace MatrixDisplay
 
   const uint8_t heightFullBits = (uint8_t)pow(2, 7);
 
-  void Clear(bool state = false)
+  void Clear(bool state)
   {
     for (uint8_t i = 0; i < 8; i++)
     {
@@ -74,5 +75,11 @@ namespace MatrixDisplay
       Serial.println(value[i]);
       pic[i] = value[i];
     }
+  }
+
+
+  bool IsInBounds(Point p)
+  {
+    return p.X >= 0 && p.X < GridSize.Width && p.Y >= 0 && p.Y < GridSize.Height;
   }
 }

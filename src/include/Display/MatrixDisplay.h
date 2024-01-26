@@ -7,7 +7,7 @@ struct Size
   int Height;
 };
 
-struct Vector2
+struct Point
 {
   int X;
   int Y;
@@ -16,6 +16,7 @@ struct Vector2
 
 namespace MatrixDisplay
 {
+  const Size GridSize = {8, 8};
 
   void Clear(bool state = false);
 
@@ -28,4 +29,6 @@ namespace MatrixDisplay
   void SetLine(uint8_t Y, uint8_t value);
 
   void Set(uint8_t* value);
+
+  bool IsInBounds(Point p);
 }

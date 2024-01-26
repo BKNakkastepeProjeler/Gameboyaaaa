@@ -28,5 +28,6 @@ namespace Input
 
     Direction GetDirection(bool debounce = true);
 
-    Vector2 GetDirectionVector(bool debounce = true);
+    Point GetDirectionVector(bool debounce = true);
+    Point GetDirectionVector(Direction dir);
 }

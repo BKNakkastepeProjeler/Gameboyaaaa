@@ -69,9 +69,8 @@ namespace Input
         }
     }
 
-    Vector2 GetDirectionVector(bool debounce)
+    Point GetDirectionVector(Direction dir)
     {
-        Direction dir = GetDirection(debounce);
         switch (dir)
         {
 
@@ -93,4 +92,13 @@ namespace Input
 
         }
     }
+
+    Point GetDirectionVector(bool debounce)
+    {
+        Direction dir = GetDirection(debounce);
+
+        return GetDirectionVector(dir);
+    }
+
+
 }

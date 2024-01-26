@@ -1,0 +1,9 @@
+TODO:
+
+- Add & test passive buzzer
+
+SnakeGame
+- Add Self Collide
+
+PCB
+- Fix D8 issue

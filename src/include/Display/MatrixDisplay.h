@@ -24,6 +24,8 @@ namespace MatrixDisplay
 
   void Periodic();
 
+  void PeriodicFor(int ms);
+  
   void SetPixel(uint8_t X, uint8_t Y, bool state);
 
   void SetLine(uint8_t Y, uint8_t value);

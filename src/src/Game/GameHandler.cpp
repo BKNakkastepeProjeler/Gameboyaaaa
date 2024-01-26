@@ -1,13 +1,15 @@
 #include "Game/BaseGame.h"
 
 #include "Game/Games/SnakeGame.h"
+#include "Game/Games/TurretGame.h"
 
 #include "Display/MatrixDisplay.h"
 
 namespace GameHandler
 {
     BaseGame* Games[] = {
-        new SnakeGame()
+        new SnakeGame(),
+        new TurretGame()
     };
     
     const uint8_t GameCount = sizeof(Games) / sizeof(BaseGame*);
@@ -16,7 +18,7 @@ namespace GameHandler
 
     bool Playing = false;
     
-    void SelectGame(uint8_t newGame)
+    void SelectGame(int8_t newGame)
     {
         if(newGame < 0) SelectedGame = GameCount - 1;
         else if(newGame >= GameCount) SelectedGame = 0;
@@ -46,6 +48,7 @@ namespace GameHandler
         Playing = false;
 
         SelectGame(SelectedGame);
+
     }
 
     void Periodic()

@@ -1,5 +1,6 @@
 #include "Pinout.h"
 #include "Display/MatrixDisplay.h"
+#include "AsyncDelay.h"
 
 namespace MatrixDisplay
 {
@@ -42,6 +43,16 @@ namespace MatrixDisplay
     }
   }
 
+  void PeriodicFor(int ms)
+  {
+    AsyncDelay delay = AsyncDelay(ms, AsyncDelay::MILLIS);
+    delay.restart();
+    while (!delay.isExpired())
+    {
+      Periodic();
+    }
+  }
+  
   void SetPixel(uint8_t X, uint8_t Y, bool state)
   {
     if (X < 0 || X > 7 || Y < 0 || Y > 7)
@@ -72,7 +83,6 @@ namespace MatrixDisplay
   {
     for (uint8_t i = 0; i < 8; i++)
     {
-      Serial.println(value[i]);
       pic[i] = value[i];
     }
   }

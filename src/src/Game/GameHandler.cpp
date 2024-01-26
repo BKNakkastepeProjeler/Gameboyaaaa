@@ -2,6 +2,7 @@
 
 #include "Game/Games/SnakeGame.h"
 #include "Game/Games/TurretGame.h"
+#include "Game/Games/DodgeGame.h"
 
 #include "Display/MatrixDisplay.h"
 
@@ -9,7 +10,8 @@ namespace GameHandler
 {
     BaseGame* Games[] = {
         new SnakeGame(),
-        new TurretGame()
+        new TurretGame(),
+        new DodgeGame()
     };
     
     const uint8_t GameCount = sizeof(Games) / sizeof(BaseGame*);
